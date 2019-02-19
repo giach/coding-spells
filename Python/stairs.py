@@ -19,5 +19,20 @@ def fancyClimbingStairs(n):
 
 	print(a)
 
+memo = {}
+def topDownClimbingStairs(n):
+	if n in memo:
+		return memo[n]
+
+	if n <= 2:
+		w = n
+	else:
+		w = topDownClimbingStairs(n-1) + topDownClimbingStairs(n-2)
+
+	memo[n] = w
+	return w
+
+
 climbingstairs(2)
 fancyClimbingStairs(4)
+print(topDownClimbingStairs(4))
